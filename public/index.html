@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguridad Biometrica - Sistema de Reconocimiento Facial</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <div id="Titulo">
+            <h1><a href="index.html">Seguridad Biometrica</a></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#colum-tit">Servicios</a></li>
+                <li><a href="#footer">Contacto</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="slider-arriba">
+            <div class="slide">
+                <img src="img/carrusel 2.jpg" alt="Imagen 1">
+            </div>
+            <div class="slide">
+                <img src="img/carrusel 1.jpg" alt="Imagen 2">
+            </div>
+            <div class="mover-slider">
+                <button class="antes" onclick="moveSlide(-1)">❮</button>
+                <button class="despues" onclick="moveSlide(1)">❯</button>
+            </div>
+        </div>
+
+        <section id="tit">
+            <h1>Seguridad Biométrica</h1>
+            <p>En SeguridadBiometrica, ofrecemos soluciones avanzadas en seguridad biométrica.</p>
+        </section>
+
+     
+    </main>
+    <footer id="footer">
+        <div class="columnas-footer">
+            <div class="contac">
+                <h3>Contacto</h3>
+                <p>info@SeguridadBiometrica.com</p>
+                <p>+54 9 3534262798</p>
+            </div>
+            <div class="contac">
+                <h3>Redes Sociales</h3>
+                <p><a href="#">Instagram</a></p>
+                <p><a href="#">Twitter</a></p>
+                <p><a href="#">LinkedIn</a></p>
+            </div>
+            <div class="contac">
+                <h3>Trabaja con Nosotros</h3>
+                <p>Envía tu CV a:</p>
+                <p><a href="#">LinkedIn</a></p>
+            </div>
+        </div>
+     
+    </footer>
+    <script>
+        let slideAhora = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+        }
+
+        function moveSlide(direction) {
+            slideAhora = (slideAhora + direction + slides.length) % slides.length;
+            showSlide(slideAhora);
+        }
+
+        setInterval(() => {
+            moveSlide(1);
+        }, 4000);
+
+        showSlide(slideAhora);
+    </script>
+   <script>
+    
+    window.onload = function() {
+        document.body.classList.remove('fade-out');
+    };
+
+    document.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault(); 
+
+            document.body.classList.add('fade-out'); 
+
+            const url = this.href;
+          
+            setTimeout(() => {
+                window.location.href = url; 
+            }, 200); 
+        });
+    });
+</script>
+    
+</body>
+</html>

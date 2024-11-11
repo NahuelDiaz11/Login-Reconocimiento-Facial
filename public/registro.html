@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - BioSyst</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
+</head>
+<body>
+    <header>
+        <div id="Titulo">
+            <h1><a href="index.html">BioSyst</a></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html#servicios">Servicios</a></li>
+                <li><a href="index.html#footer">Contacto</a></li>
+                <li><a href="login.html">Iniciar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <h1>Registro de Usuario</h1>
+            <div class="registro-contenedor">
+                <div class="formulario">
+                    <form id="registro-form">
+                        <input type="text" id="registro-name" placeholder="Nombre de usuario" required>
+                        <input type="password" id="registro-password" placeholder="Contraseña" required>
+                        <button type="submit" class="boton">Registrar</button>
+                    </form>
+                </div> 
+                <div class="camara">
+                    <button type="button" id="capturar-foto" class="boton">Capturar Foto</button>
+                    <div id="video-container">
+                        <video id="video" width="640" height="480" autoplay muted></video>
+                        <canvas id="canvas" width="640" height="480"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div id="mensaje"></div>
+            <div class="cuenta-sesion">
+                <p>¿Tienes cuenta?</p>
+                <a href="login.html">Inicia Sesión</a>
+            </div>
+        </div>
+       
+    </main>
+    <footer id="footer">
+        <div class="columnas-footer">
+            <div class="contac">
+                <h3>Contacto</h3>
+                <p>info@biosyst.com</p>
+                <p>+54 11 999-999</p>
+            </div>
+            <div class="contac">
+                <h3>Redes Sociales</h3>
+                <p><a href="#">Instagram</a></p>
+                <p><a href="#">Twitter</a></p>
+                <p><a href="#">LinkedIn</a></p>
+            </div>
+            <div class="contac">
+                <h3>Trabaja con Nosotros</h3>
+                <p>Envía tu CV a:</p>
+                <p><a href="#">LinkedIn</a></p>
+            </div>
+        </div>
+        <div class="derechos">
+            <p>© 2024 BioSyst. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <script src="js/registro.js"></script>
+    <script>
+        // Cuando la página carga, no hacemos nada especial
+        window.onload = function() {
+            document.body.classList.remove('fade-out');
+        };
+    
+        // Agregar evento a todos los enlaces
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault(); // Evita la acción por defecto del enlace
+    
+                document.body.classList.add('fade-out'); // Agrega clase para desvanecer
+    
+                const url = this.href; // Guardamos la URL
+    
+                // Esperar a que la transición termine antes de redirigir
+                setTimeout(() => {
+                    window.location.href = url; // Redirige a la nueva página
+                }, 200); 
+            });
+        });
+    </script>
+</body>
+</html>
